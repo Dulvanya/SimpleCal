@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +9,26 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            background-image: url('calc.jpg'); 
+            background-image: url('calc.jpg');
             background-size: cover;
             background-repeat: no-repeat;
-            
+
         }
 
         .calculator {
-            width:390px;
+            width: 390px;
             height: 680px;
             margin: 0 auto;
             background-color: #171313;
             border-radius: 5px;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            float : right;
+            float: right;
         }
 
         .calculator input[type="button"] {
             width: 80px;
-            height:100px;
+            height: 100px;
             margin: 5px;
             font-size: 20px;
             border: none;
@@ -40,7 +41,7 @@
             margin-bottom: 10px;
             padding: 10px;
             font-size: 24px;
-            text-align:right;
+            text-align: right;
             border: none;
             border-radius: 5px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -52,73 +53,75 @@
         }
     </style>
 </head>
+
 <body>
 
-<div class="calculator">
-    <input type="text" id="display" readonly>
-    <br>
-    <input type="button" value="7" onclick="addToDisplay('7')">
-    <input type="button" value="8" onclick="addToDisplay('8')">
-    <input type="button" value="9" onclick="addToDisplay('9')">
-    <input type="button" value="/" onclick="addToDisplay('/')">
-    <br>
-    <input type="button" value="4" onclick="addToDisplay('4')">
-    <input type="button" value="5" onclick="addToDisplay('5')">
-    <input type="button" value="6" onclick="addToDisplay('6')">
-    <input type="button" value="*" onclick="addToDisplay('*')">
-    <br>
-    <input type="button" value="1" onclick="addToDisplay('1')">
-    <input type="button" value="2" onclick="addToDisplay('2')">
-    <input type="button" value="3" onclick="addToDisplay('3')">
-    <input type="button" value="-" onclick="addToDisplay('-')">
-    <br>
-    <input type="button" value="0" onclick="addToDisplay('0')">
-    <input type="button" value="." onclick="addToDisplay('.')">
-    <input type="button" value="=" onclick="calculate()">
-    <input type="button" value="+" onclick="addToDisplay('+')">
-    <br>
-    <input type="button" value="C" onclick="clearDisplay()">
-    <input type="button" value="+/-" onclick="toggleSign()">
-    <input type="button" value="x^2" onclick="square()">
-    <input type="button" value="←" onclick="backspace()">
-</div>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <br>
+        <input type="button" value="7" onclick="addToDisplay('7')">
+        <input type="button" value="8" onclick="addToDisplay('8')">
+        <input type="button" value="9" onclick="addToDisplay('9')">
+        <input type="button" value="/" onclick="addToDisplay('/')">
+        <br>
+        <input type="button" value="4" onclick="addToDisplay('4')">
+        <input type="button" value="5" onclick="addToDisplay('5')">
+        <input type="button" value="6" onclick="addToDisplay('6')">
+        <input type="button" value="*" onclick="addToDisplay('*')">
+        <br>
+        <input type="button" value="1" onclick="addToDisplay('1')">
+        <input type="button" value="2" onclick="addToDisplay('2')">
+        <input type="button" value="3" onclick="addToDisplay('3')">
+        <input type="button" value="-" onclick="addToDisplay('-')">
+        <br>
+        <input type="button" value="0" onclick="addToDisplay('0')">
+        <input type="button" value="." onclick="addToDisplay('.')">
+        <input type="button" value="=" onclick="calculate()">
+        <input type="button" value="+" onclick="addToDisplay('+')">
+        <br>
+        <input type="button" value="C" onclick="clearDisplay()">
+        <input type="button" value="+/-" onclick="toggleSign()">
+        <input type="button" value="x^2" onclick="square()">
+        <input type="button" value="←" onclick="backspace()">
+    </div>
 
 
 
-<script>
-    function addToDisplay(value) {
-        document.getElementById('display').value += value;
-    }
-
-    function calculate() {
-        let expression = document.getElementById('display').value;
-        let result = eval(expression);
-        document.getElementById('display').value = result;
-    }
-    function clearDisplay() {
-        document.getElementById('display').value = '';
-    }
-
-    function toggleSign() {
-        let displayValue = document.getElementById('display').value;
-        if (displayValue.length > 0 && displayValue.charAt(0) === '-') {
-            document.getElementById('display').value = displayValue.slice(1);
-        } else {
-            document.getElementById('display').value = '-' + displayValue;
+    <script>
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
         }
-    }
 
-    function square() {
-        let displayValue = parseFloat(document.getElementById('display').value);
-        let squareResult = Math.pow(displayValue, 2);
-        document.getElementById('display').value = squareResult;
-    }
+        function calculate() {
+            let expression = document.getElementById('display').value;
+            let result = eval(expression);
+            document.getElementById('display').value = result;
+        }
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
 
-    function backspace() {
-        let displayValue = document.getElementById('display').value;
-        document.getElementById('display').value = displayValue.slice(0, -1);
-    }
-</script>
+        function toggleSign() {
+            let displayValue = document.getElementById('display').value;
+            if (displayValue.length > 0 && displayValue.charAt(0) === '-') {
+                document.getElementById('display').value = displayValue.slice(1);
+            } else {
+                document.getElementById('display').value = '-' + displayValue;
+            }
+        }
+
+        function square() {
+            let displayValue = parseFloat(document.getElementById('display').value);
+            let squareResult = Math.pow(displayValue, 2);
+            document.getElementById('display').value = squareResult;
+        }
+
+        function backspace() {
+            let displayValue = document.getElementById('display').value;
+            document.getElementById('display').value = displayValue.slice(0, -1);
+        }
+    </script>
 
 </body>
+
 </html>
